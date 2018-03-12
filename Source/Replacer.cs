@@ -87,6 +87,8 @@ namespace DiRT
 
                         material.SetTexture(BUMPMAP_PROPERTY, newNormalMap);
                         UnityEngine.Object.Destroy(normalMap);
+
+                        DiRT.log("Replaced normalMap " + newNormalMap.name);
                     }
                 }
             }
@@ -99,9 +101,14 @@ namespace DiRT
             {
                 // TODO - In testing this is throwing occasional ERRs.
                 Texture texture = material.mainTexture;
-                if (texture == null || texture.name.Length == 0 || texture.name.StartsWith("Temp", StringComparison.Ordinal))
-                    continue;
-                exportTextures.Add(material.name + " : '" + texture.name + "' (" + texture.width + " x " + texture.height + ")");
+                if (texture != null && texture.name.Length > 0 && (!texture.name.StartsWith("Temp", StringComparison.Ordinal)))                    
+                    exportTextures.Add(material.name + " : '" + texture.name + "' (" + texture.width + " x " + texture.height + ")");
+
+                // Attempt to get the NormalMap.
+                // TODO - In testing this is throwing occasional ERRs.
+                Texture normalMap = material.GetTexture(BUMPMAP_PROPERTY);
+                if (normalMap != null && normalMap.name.Length > 0 && (!normalMap.name.StartsWith("Temp", StringComparison.Ordinal)))
+                    exportTextures.Add("(NormalMap) " + material.name + " : '" + normalMap.name + "' (" + normalMap.width + " x " + normalMap.height + ")");
             }
 
             // Write the texture names out to a file in our plugin's folder.
@@ -111,7 +118,7 @@ namespace DiRT
 
             foreach (String texEntry in exportTextures)
             {
-                configFile.AddValue("Texture", texEntry);
+                configFile.AddValue("Texture", texEntry);                
             }
             configFile.Save(KSPUtil.ApplicationRootPath + "GameData/" + DiRT.DIRT_DIR + "ExportedTextureList.txt");
 
