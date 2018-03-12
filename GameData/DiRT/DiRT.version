@@ -1,0 +1,16 @@
+{
+  "NAME": "DiRT",
+  "URL": "https://raw.githubusercontent.com/cydonian-monk/KSP-DiRT/master/GameData/DiRT/DiRT.version",
+  "DOWNLOAD": "https://github.com/cydonian-monk/KSP-DiRT",
+  "VERSION": {
+    "MAJOR": 1,
+    "MINOR": 4,
+    "PATCH": 0,
+    "BUILD": 1
+  },
+  "KSP_VERSION": {
+    "MAJOR": 1,
+    "MINOR": 4,
+    "PATCH": 0
+  }
+}

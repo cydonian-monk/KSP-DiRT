@@ -1,0 +1,7 @@
+/Source/DiRT.csproj.user
+/DiRT.v12.suo
+/*/bin
+/*/obj
+*.dll
+*.zip
+/*/.DS_Store
