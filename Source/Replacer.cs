@@ -48,47 +48,52 @@ namespace DiRT
         {
             foreach (Material material in Resources.FindObjectsOfTypeAll<Material>())
             {
-                // TODO - In testing this is throwing occasional ERRs.
-                Texture texture = material.mainTexture;
-
-                if (texture == null || texture.name.Length == 0 || texture.name.StartsWith("Temp", StringComparison.Ordinal))
-                    continue;
-
-                Texture2D newTexture;
-                mappedTextures.TryGetValue(texture.name, out newTexture);
-
-                if (newTexture != null)
+                // Only get the main texture if this object has one.
+                if (material.HasProperty(Shader.PropertyToID("_MainTex")))
                 {
-                    if (newTexture != texture)
+                    Texture texture = material.mainTexture;
+
+                    if (texture == null || texture.name.Length == 0 || texture.name.StartsWith("Temp", StringComparison.Ordinal))
+                        continue;
+
+                    Texture2D newTexture;
+                    mappedTextures.TryGetValue(texture.name, out newTexture);
+
+                    if (newTexture != null)
                     {
-                        newTexture.anisoLevel = texture.anisoLevel;
-                        newTexture.wrapMode = texture.wrapMode;
+                        if (newTexture != texture)
+                        {
+                            newTexture.anisoLevel = texture.anisoLevel;
+                            newTexture.wrapMode = texture.wrapMode;
 
-                        material.mainTexture = newTexture;
-                        UnityEngine.Object.Destroy(texture);
+                            material.mainTexture = newTexture;
+                            UnityEngine.Object.Destroy(texture);
 
-                        DiRT.log("Replaced texture " + material.mainTexture.name);
+                            DiRT.log("Replaced texture " + material.mainTexture.name);
+                        }
                     }
                 }
 
-                // TODO - In testing this is throwing occasional ERRs.
-                Texture normalMap = material.GetTexture(BUMPMAP_PROPERTY);
-                if (normalMap == null)
-                    continue;
-                Texture2D newNormalMap;
-                mappedTextures.TryGetValue(normalMap.name, out newNormalMap);
-
-                if (newNormalMap != null)
+                if (material.HasProperty(BUMPMAP_PROPERTY))
                 {
-                    if (newNormalMap != normalMap)
+                    Texture normalMap = material.GetTexture(BUMPMAP_PROPERTY);
+                    if (normalMap == null)
+                        continue;
+                    Texture2D newNormalMap;
+                    mappedTextures.TryGetValue(normalMap.name, out newNormalMap);
+
+                    if (newNormalMap != null)
                     {
-                        newNormalMap.anisoLevel = normalMap.anisoLevel;
-                        newNormalMap.wrapMode = normalMap.wrapMode;
+                        if (newNormalMap != normalMap)
+                        {
+                            newNormalMap.anisoLevel = normalMap.anisoLevel;
+                            newNormalMap.wrapMode = normalMap.wrapMode;
 
-                        material.SetTexture(BUMPMAP_PROPERTY, newNormalMap);
-                        UnityEngine.Object.Destroy(normalMap);
+                            material.SetTexture(BUMPMAP_PROPERTY, newNormalMap);
+                            UnityEngine.Object.Destroy(normalMap);
 
-                        DiRT.log("Replaced normalMap " + newNormalMap.name);
+                            DiRT.log("Replaced normalMap " + newNormalMap.name);
+                        }
                     }
                 }
             }
@@ -99,16 +104,21 @@ namespace DiRT
         {
             foreach (Material material in Resources.FindObjectsOfTypeAll<Material>())
             {
-                // TODO - In testing this is throwing occasional ERRs.
-                Texture texture = material.mainTexture;
-                if (texture != null && texture.name.Length > 0 && (!texture.name.StartsWith("Temp", StringComparison.Ordinal)))                    
-                    exportTextures.Add(material.name + " : '" + texture.name + "' (" + texture.width + " x " + texture.height + ")");
+                // Only get the main texture if this object has one.
+                if (material.HasProperty(Shader.PropertyToID("_MainTex")))
+                {
+                    Texture texture = material.mainTexture;
+                    if (texture != null && texture.name.Length > 0 && (!texture.name.StartsWith("Temp", StringComparison.Ordinal)))
+                        exportTextures.Add(material.name + " : '" + texture.name + "' (" + texture.width + " x " + texture.height + ")");
+                }
 
                 // Attempt to get the NormalMap.
-                // TODO - In testing this is throwing occasional ERRs.
-                Texture normalMap = material.GetTexture(BUMPMAP_PROPERTY);
-                if (normalMap != null && normalMap.name.Length > 0 && (!normalMap.name.StartsWith("Temp", StringComparison.Ordinal)))
-                    exportTextures.Add("(NormalMap) " + material.name + " : '" + normalMap.name + "' (" + normalMap.width + " x " + normalMap.height + ")");
+                if (material.HasProperty(BUMPMAP_PROPERTY))
+                {
+                    Texture normalMap = material.GetTexture(BUMPMAP_PROPERTY);
+                    if (normalMap != null && normalMap.name.Length > 0 && (!normalMap.name.StartsWith("Temp", StringComparison.Ordinal)))
+                        exportTextures.Add("(NormalMap) " + material.name + " : '" + normalMap.name + "' (" + normalMap.width + " x " + normalMap.height + ")");
+                }
             }
 
             // Write the texture names out to a file in our plugin's folder.

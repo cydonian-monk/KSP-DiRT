@@ -68,7 +68,6 @@ namespace DiRT
         public void Start()
         {
             DiRT.log("Start {0}", Assembly.GetExecutingAssembly().GetName().Version);
-            // TODO - Is there a non-Linq way to do this?
             if (AssemblyLoader.loadedAssemblies.Any(a => (a.name.Contains("TextureReplacer") || a.name.Contains("Texture Replacer Replaced"))))
             {
                 DiRT.log("Either TextureReplacerReplaced or TextureReplacer was found; Skipping DiRT Replacer.");

@@ -4,20 +4,20 @@ DiRT is a fork of Shaw's TextureReplacer, and is used for substituting textures 
 
 ### What This Plugin Does
 * Replaces in-game textures and normal maps.
-* Exports a list of the game's textures and normal maps to a text file.
+* Exports a list of the game's textures to a text file.
 
 ### What This Plugin Does Not Do
 * Anything else.
 
-Specifically, this plugin does not perform Active Texture Management, does not compress textures, does not convert PNG files to RGB, does not generate MipMaps, and does not allow suits and heads to be mapped to specific kerbals. If you need any of those features, please consider using "Texture Replacer Replaced" or one of the other forks of "Texture Replacer".
+Specifically, this plugin does not perform Active Texture Management, does not compress textures, does not convert PNG files to RGB, does not generate MipMaps, and does not allow suits and heads to be mapped to specific kerbals. If you need any of those features, please consider using "Texture Replacer Replaced".
 
-Additionally, this plugin does not replace NavBall textures. For NavBall textures, please consider using "Navball Texture Changer".
+Additionally, this plugin does not allow replacement of NavBall textures. For NavBall textures, please consider using "Navball Texture Changer".
 
 
 Instructions
 ------------
 ### Installation
-Copy the provided "DiRT" folder (found in the GameData folder in the zip file) into to the "GameData" folder of your KSP install.
+Copy the provided "DiRT" folder into to the "GameData" folder of your KSP install.
 
 ### Replacement Textures
 Drop your Replacement Textures into the "GameData/DiRT/Textures" folder.
@@ -36,6 +36,8 @@ I strongly suggest the use of DDS/DXT5 texture files with pre-generated MipMaps.
 
 Change Log
 ----------
+* 1.4.0.3
+	- Fix to prevent missing "_MainTex" and "_BumpMap" log spam.
 * 1.4.0.2
 	- Fix for normalMap export and logging.
 * 1.4.0.1
@@ -46,8 +48,9 @@ Change Log
 
 License
 -------
-Copyright © 2018 Andrew Cummings (Cydonian Monk) 
-Copyright © 2013-2015 Davorin Učakar, Ryan Bray 
+Copyright © 2018 Andrew Cummings (Cydonian Monk)
+
+Copyright © 2013-2015 Davorin Učakar, Ryan Bray
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
