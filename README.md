@@ -36,7 +36,8 @@ I strongly suggest the use of DDS/DXT5 texture files with pre-generated MipMaps.
 
 Change Log
 ----------
-* 1.4.0.3
+* 1.4.1.0
+	- Recompile for KSP v1.4.1.
 	- Fix to prevent missing "_MainTex" and "_BumpMap" log spam.
 * 1.4.0.2
 	- Fix for normalMap export and logging.
