@@ -29,13 +29,30 @@ In the folder for your pack, create a config.cfg file containing a "DiRT_Config"
 Set the "exportTextureNames" entry in the config file to "True". A file will be created in the main DiRT GameData folder named "GameData/DiRT/ExportedTextureList.txt" with a list of textures and their normal maps. This file will be updated once per game launch.
 
 
-Comments
---------
-I strongly suggest the use of DDS/DXT5 texture files with pre-generated MipMaps.
+Common Texture Names
+--------------------
+### SkyBox
+* GalaxyTex_NegativeX
+* GalaxyTex_PositiveX
+* GalaxyTex_PositiveY
+* GalaxyTex_NegativeY
+* GalaxyTex_NegativeZ
+* GalaxyTex_PositiveZ
+### Kerbals
+* Coming Soon.
+
+
+General Comments
+----------------
+* I strongly suggest the use of DDS/DXT1 or DDS/DXT5 texture files with pre-generated MipMaps.
+* Textures will work best if their size is a power of 2. (Ex: 1024x512) If in doubt, use the resolution of the texture you are replacing. 
+* Due to the way KSP and/or Unity uses textures, you must rotate the texture 180 degrees and flip horizontally before saving/exporting. 
 
 
 Change Log
 ----------
+* 1.4.2.0
+	- Recompile for KSP v1.4.2
 * 1.4.1.0
 	- Recompile for KSP v1.4.1.
 	- Fix to prevent missing "_MainTex" and "_BumpMap" log spam.
