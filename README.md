@@ -38,8 +38,19 @@ Common Texture Names
 * GalaxyTex_NegativeY
 * GalaxyTex_NegativeZ
 * GalaxyTex_PositiveZ
+
 ### Kerbals
-* Coming Soon.
+These are listed as: "Texture name (Normal Map) - Short description."
+* me_suit_difuse_orange (kerbalMainNRM) - Making History suit. This is used for both the helmet and body.
+* me_suit_difuse_blue (kerbalMainNRM) - Making History  Suit. This is used for both the helmet and body.
+* EVAjetpackscondary (EVAjetpacksecondary_N) - Making History  jetpack.
+* EVALight (?) - Making History helmet light.
+* kerbalHead 
+* kerbalGirl_06_BaseColor (?) - Female kerbal head.
+* kerbalMain (kerbalMainNRM) - 
+* EVAjetpack (EVAjetpackNRM) - Original jetpack.
+* EVAhelmet (kerbalHelmetNRM) - Original EVA helmet.
+* kerbalHelmetGrey (kerbalHelmetGreyNRM) - Original IVA helmet.
 
 
 General Comments
@@ -51,6 +62,9 @@ General Comments
 
 Change Log
 ----------
+* 1.4.3.0
+	- Recompile for KSP v1.4.3
+	- Removed code which prevented DiRT from running alongside TextureReplacer and TextureReplacerReplaced.	
 * 1.4.2.0
 	- Recompile for KSP v1.4.2
 * 1.4.1.0

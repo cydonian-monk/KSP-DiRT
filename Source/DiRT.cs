@@ -25,7 +25,6 @@ using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Reflection;
-using System.Linq;
 using UnityEngine;
 
 namespace DiRT
@@ -68,15 +67,8 @@ namespace DiRT
         public void Start()
         {
             DiRT.log("Start {0}", Assembly.GetExecutingAssembly().GetName().Version);
-            if (AssemblyLoader.loadedAssemblies.Any(a => (a.name.Contains("TextureReplacer") || a.name.Contains("Texture Replacer Replaced"))))
-            {
-                DiRT.log("Either TextureReplacerReplaced or TextureReplacer was found; Skipping DiRT Replacer.");
-            }
-            else
-            {
-                Replacer.instance.load();
-                isReplacerLoaded = true;
-            }
+            Replacer.instance.load();
+            isReplacerLoaded = true;
         }     
     }
 }
