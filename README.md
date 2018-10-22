@@ -9,7 +9,7 @@ DiRT is a fork of Shaw's TextureReplacer, and is used for substituting textures 
 ### What This Plugin Does Not Do
 * Anything else.
 
-Specifically, this plugin does not perform Active Texture Management, does not compress textures, does not convert PNG files to RGB, does not generate MipMaps, and does not allow suits and heads to be mapped to specific kerbals. If you need any of those features, please consider using "Texture Replacer Replaced".
+Specifically, this plugin does not perform Active Texture Management, does not compress textures, does not convert PNG files to RGB, does not generate MipMaps, and does not allow suits and heads to be mapped to specific kerbals. If you need any of those features, please consider using "Texture Replacer" (which is back in active development).
 
 Additionally, this plugin does not allow replacement of NavBall textures. For NavBall textures, please consider using "Navball Texture Changer".
 
@@ -29,6 +29,18 @@ In the folder for your pack, create a config.cfg file containing a "DiRT_Config"
 Set the "exportTextureNames" entry in the config file to "True". A file will be created in the main DiRT GameData folder named "GameData/DiRT/ExportedTextureList.txt" with a list of textures and their normal maps. This file will be updated once per game launch.
 
 
+Module Manager Support
+----------------------
+DiRT texture paths automatically work with Module Manager. If you wish to include a Module Manager configuration for DiRT in your mod, use the following template:
+
+	@DiRT_Config
+	{
+		%TextureFolder = MyMod/Textures/
+	}
+	
+Alternatively you can just use a copy of the default DiRT configuration file altered to fit your directory structure to achieve the same, without the Module Manager markup.
+
+
 Common Texture Names
 --------------------
 ### SkyBox
@@ -40,7 +52,7 @@ Common Texture Names
 * GalaxyTex_PositiveZ
 
 ### Kerbals
-These are listed as: "Texture name (Normal Map) - Short description."
+These are listed as: "Texture name (Normal Map) - Short description." (Note - I've not checked these in 1.5.* just yet. I will update this readme later if they're different.)
 * me_suit_difuse_orange (kerbalMainNRM) - Making History suit. This is used for both the helmet and body.
 * me_suit_difuse_blue (kerbalMainNRM) - Making History  Suit. This is used for both the helmet and body.
 * EVAjetpackscondary (EVAjetpacksecondary_N) - Making History  jetpack.
@@ -62,6 +74,9 @@ General Comments
 
 Change Log
 ----------
+* 1.5.1.0
+	- Recompile for KSP v1.5.1
+	- Fixed broken distribution zip file path introduced in DiRT_1.4.2.0. (My apologies, CKAN users....)
 * 1.4.3.0
 	- Recompile for KSP v1.4.3
 	- Removed code which prevented DiRT from running alongside TextureReplacer and TextureReplacerReplaced.	
