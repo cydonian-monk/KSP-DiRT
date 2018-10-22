@@ -11,34 +11,55 @@ DiRT is a fork of Shaw's TextureReplacer, and is used for substituting textures 
 
 Specifically, this plugin does not perform Active Texture Management, does not compress textures, does not convert PNG files to RGB, does not generate MipMaps, and does not allow suits and heads to be mapped to specific kerbals. If you need any of those features, please consider using "Texture Replacer" (which is back in active development).
 
-Additionally, this plugin does not allow replacement of NavBall textures. For NavBall textures, please consider using "Navball Texture Changer".
+This plugin does not allow replacement of NavBall textures. For NavBall textures, please consider using "Navball Texture Changer".
 
 
 Instructions
 ------------
 ### Installation
-Copy the provided "DiRT" folder into to the "GameData" folder of your KSP install.
+The released zip file includes the following folders and files:
+	DiRT\ 
+	DiRT\GameData\ 
+	DiRT\GameData\DiRT\
+	DiRT\GameData\DiRT\DiRT.dll
+	DiRT\GameData\DiRT\config.cfg
+	DiRT\GameData\DiRT\DiRT.version	
+	DiRT\GameData\DiRT\Textures\
+	DiRT\Source\
+	DiRT\Source\DiRT.cs
+	DiRT\Source\DiRTActivator.cs
+	DiRT\Source\Replacer.cs
+	DiRT\Source\Properties\
+	DiRT\Source\Properties\AssemblyInfo.cs
+	DiRT\README.md
+
+Copy the "DiRT\GameData\DiRT" folder and all of its contents into to the "GameData\" folder of your KSP install.
+
+If you downloaded KSP from the Squad Store or any other direct-download source, this will be the "KSP_win64\GameData\" folder (for Windows), "KSP_osx\GameData\" (for MacOS), or "KSP_linux\GameData\" (for GNU/Linux) created when you installed the game. If you installed the game from Steam, This will be the "steamapps\common\Kerbal Space Program\GameData\" folder in whatever location is used by Steam. You can find this by right clicking on the game's name in your library, selecting Properties, going to the Local Files tab, and selecting "BROWSE LOCAL FILES...".
+
+You do not need the files in the Source folder to use the mod. Those are the C# files needed to recompile DiRT from scratch.
 
 ### Replacement Textures
-Drop your Replacement Textures into the "GameData/DiRT/Textures" folder.
+Drop your Replacement Textures into the "GameData\DiRT\Textures\" folder.
 
 ### Alternate Configs and Texture Packs
-In the folder for your pack, create a config.cfg file containing a "DiRT_Config" node. Inside that node set a "TextureFolder" entry to the GameData folder where your textures are located. See the plugin's provided config if you need an example.
+In the folder for your mod or your texture pack, create a "config.cfg" file (or any other name provided the file extension is .cfg) containing a "DiRT_Config" node. Inside that node set a "TextureFolder" entry to the GameData folder where your textures are located. Example followS:
 
-### Exporting Texture Names
-Set the "exportTextureNames" entry in the config file to "True". A file will be created in the main DiRT GameData folder named "GameData/DiRT/ExportedTextureList.txt" with a list of textures and their normal maps. This file will be updated once per game launch.
-
-
-Module Manager Support
-----------------------
-DiRT texture paths automatically work with Module Manager. If you wish to include a Module Manager configuration for DiRT in your mod, use the following template:
+	DiRT_Config
+	{
+		TextureFolder = MyMod/Textures/
+	}
+	
+### Module Manager Support
+DiRT texture paths automatically work with Module Manager. If you wish to include a Module Manager configuration for DiRT in your mod instead of the usual configuration file, use the following template:
 
 	@DiRT_Config
 	{
 		%TextureFolder = MyMod/Textures/
 	}
-	
-Alternatively you can just use a copy of the default DiRT configuration file altered to fit your directory structure to achieve the same, without the Module Manager markup.
+
+### Exporting Texture Names
+Set the "exportTextureNames" entry in the config file to "True". A file will be created in the main DiRT GameData folder named "GameData/DiRT/ExportedTextureList.txt" with a list of textures and their normal maps. This file will be updated once per game launch.
 
 
 Common Texture Names
@@ -52,17 +73,25 @@ Common Texture Names
 * GalaxyTex_PositiveZ
 
 ### Kerbals
-These are listed as: "Texture name (Normal Map) - Short description." (Note - I've not checked these in 1.5.* just yet. I will update this readme later if they're different.)
-* me_suit_difuse_orange (kerbalMainNRM) - Making History suit. This is used for both the helmet and body.
-* me_suit_difuse_blue (kerbalMainNRM) - Making History  Suit. This is used for both the helmet and body.
-* EVAjetpackscondary (EVAjetpacksecondary_N) - Making History  jetpack.
-* EVALight (?) - Making History helmet light.
-* kerbalHead 
+These are listed as: "Texture name (Normal Map) - Short description." 
+* kerbalHead (?) - Male kerbal head.
 * kerbalGirl_06_BaseColor (?) - Female kerbal head.
-* kerbalMain (kerbalMainNRM) - 
-* EVAjetpack (EVAjetpackNRM) - Original jetpack.
-* EVAhelmet (kerbalHelmetNRM) - Original EVA helmet.
-* kerbalHelmetGrey (kerbalHelmetGreyNRM) - Original IVA helmet.
+* whiteSuite_diffuse (orangeSuite_normal) - The new 1.5 EVA suit texture. This is used for both the helmet and body.
+* orangeSuite_diffuse (orangeSuite_normal) - The new 1.5 orange IVA suit. This is used for both the helmet and body.
+* paleBlueSuite_diffuse (orangeSuite_normal) - The new 1.5 blue IVA suit. This is used for both the helmet and body.
+* EVAjetpack (EVAjetpackNRM) - EVA jetpack texture.
+* jetpack (EVAjetpackNRM) - Not sure what this is. A new 1.5.x EVA pack? The in-game model still uses the old texture name (EVAjetpack), just with a different mapping.
+* me_suit_difuse_orange (kerbalMainNRM) - Making History suit texture. This is used for both the helmet and body.
+* me_suit_difuse_blue (kerbalMainNRM) - Making History suit texture. This is used for both the helmet and body.
+* EVAjetpackscondary (EVAjetpacksecondary_N) - Making History  jetpack texture.
+* EVALight (?) - Making History helmet light.
+* backpack_Diff (backpack_NM) - Parachute.
+* edHarris_body (?) - Gene Kerman's body.
+* edHarris_head (?) - Gene Kerman's head.
+* headSet01 (?) - Gene Kerman's headset.
+* wernerVonKerman_body02 (?) - Wernher von Kerman's (second?) body.
+* wernerVonKerman_head (?) - Wernher von Kerman's head.
+* wernerVonKerman_glasses (?) - Wernher von Kerman's spectacles.
 
 
 General Comments
@@ -76,7 +105,7 @@ Change Log
 ----------
 * 1.5.1.0
 	- Recompile for KSP v1.5.1
-	- Fixed broken distribution zip file path introduced in DiRT_1.4.2.0. (My apologies, CKAN users....)
+	- Updated this readme file.
 * 1.4.3.0
 	- Recompile for KSP v1.4.3
 	- Removed code which prevented DiRT from running alongside TextureReplacer and TextureReplacerReplaced.	
