@@ -18,7 +18,6 @@ Instructions
 ------------
 ### Installation
 The released zip file includes the following folders and files:
-
 	DiRT\ 
 	DiRT\GameData\ 
 	DiRT\GameData\DiRT\
@@ -44,7 +43,7 @@ You do not need the files in the Source folder to use the mod. Those are the C# 
 Drop your Replacement Textures into the "GameData\DiRT\Textures\" folder.
 
 ### Alternate Configs and Texture Packs
-In the folder for your mod or your texture pack, create a "config.cfg" file (or any other name provided the file extension is .cfg) containing a "DiRT_Config" node. Inside that node set a "TextureFolder" entry to the GameData folder where your textures are located. Example follows:
+In the folder for your mod or your texture pack, create a "config.cfg" file (or any other name provided the file extension is .cfg) containing a "DiRT_Config" node. Inside that node set a "TextureFolder" entry to the GameData folder where your textures are located. Example followS:
 
 	DiRT_Config
 	{
@@ -104,6 +103,8 @@ General Comments
 
 Change Log
 ----------
+* 1.6.1.0
+	- Recompile for KSP v1.6.1
 * 1.5.1.0
 	- Recompile for KSP v1.5.1
 	- Updated this readme file.
