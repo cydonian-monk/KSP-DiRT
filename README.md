@@ -103,6 +103,11 @@ General Comments
 
 Change Log
 ----------
+* 1.7.2.0
+	- Recompile for KSP v1.7.2
+* 1.3.1.0
+	- Back port and recompile for previous version of KSP v1.3.1 
+	- (Yes, I know this is out of order.)
 * 1.6.1.0
 	- Recompile for KSP v1.6.1
 * 1.5.1.0
@@ -126,7 +131,7 @@ Change Log
 
 License
 -------
-Copyright © 2018 Andrew Cummings (Cydonian Monk)
+Copyright © 2018-2019 Andrew Cummings (Cydonian Monk)
 
 Copyright © 2013-2015 Davorin Učakar, Ryan Bray
 

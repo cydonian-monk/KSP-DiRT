@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright © 2018 Andrew Cummings (Cydonian Monk)
+ * Copyright © 2018-2019 Andrew Cummings (Cydonian Monk)
  * Copyright © 2013-2015 Davorin Učakar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
