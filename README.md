@@ -103,6 +103,10 @@ General Comments
 
 Change Log
 ----------
+* 1.8.0.0
+    - Recompile for KSP v1.8.0 and new version of Unity.
+    - Changed .NET build target to version 4.7.
+    - Added new references: UnityEngine.CoreModule, UnityEngine.ImageConversionModule
 * 1.7.2.0
 	- Recompile for KSP v1.7.2
 * 1.3.1.0

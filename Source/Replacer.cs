@@ -21,9 +21,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-using KSP.UI.Screens.Flight;
 using System;
-using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
