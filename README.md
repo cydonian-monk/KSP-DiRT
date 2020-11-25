@@ -103,6 +103,8 @@ General Comments
 
 Change Log
 ----------
+* 1.10.0.0
+	- Recompile for KSP v1.10.1
 * 1.8.0.0
     - Recompile for KSP v1.8.0 and new version of Unity.
     - Changed .NET build target to version 4.7.
@@ -135,7 +137,7 @@ Change Log
 
 License
 -------
-Copyright © 2018-2019 Andrew Cummings (Cydonian Monk)
+Copyright © 2018-2020 Andrew Cummings (Cydonian Monk)
 
 Copyright © 2013-2015 Davorin Učakar, Ryan Bray
 
